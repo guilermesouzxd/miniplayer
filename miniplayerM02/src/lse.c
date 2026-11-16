@@ -27,6 +27,36 @@ t_lse *lse_criar(void) {
     return lista;
 } /* TODO M02/M03 */
 
+int lse_tamanho(t_lse *lista) {
+    if (lista == NULL) {
+        return 0;
+    }
+
+    return lista->tamanho;
+}
+
+void *lse_primeiro(t_lse *lista) {
+    if (lista == NULL || lista->inicio == NULL){
+        return NULL;
+    }
+
+    return lista->inicio->carga;
+}
+
+void *lse_destruir(t_lse *lista, void (*destruir)(void *)) {
+
+    (void)destruir;
+
+    if (lista == NULL){
+
+        return;
+    }
+
+    free(lista);
+}
+
+
+
 
 
 int lse_tamanho(const t_lse *l) { (void)l; return -1; } /* TODO M03 */
