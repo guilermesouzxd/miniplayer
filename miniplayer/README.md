@@ -17,3 +17,4 @@ Projeto integrador progressivo, em duplas, em C. Reprodução **simulada**.
 
 ## Como documentar
 Preencher `docs/arquitetura.md`, `docs/contratos.md`, `docs/diario-de-bordo.md` e `docs/relatorio-testes.md` a cada missão. Ver `GUIA_ESTUDANTE.md`.
+

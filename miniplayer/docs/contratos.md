@@ -13,3 +13,5 @@ Para **cada função**, preencher:
 - `tamanho == 0` se e somente se `inicio == NULL`.
 - Há exatamente `tamanho` nós alcançáveis a partir de `inicio`.
 - O último nó aponta para `NULL` e não há ciclos.
+
+### 1. 'lse_criar'
