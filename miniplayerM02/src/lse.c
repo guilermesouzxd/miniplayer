@@ -10,9 +10,9 @@ typedef struct elem {
 struct lse {
     t_elem *inicio;
     int tamanho;
-    /* M08 (otimizacao opcional): t_elem *fim; */
+    t_elem *fim;
 };
-/* Stubs intencionalmente incompletos; testes devem falhar ate implementacao. */
+
 
 t_lse *lse_criar(void) {
     
