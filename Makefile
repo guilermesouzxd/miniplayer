@@ -20,3 +20,5 @@ test: $(BUILD)/test_musica $(BUILD)/test_lse $(BUILD)/test_pilha $(BUILD)/test_f
 	@set -e; for t in $(BUILD)/test_musica $(BUILD)/test_lse $(BUILD)/test_pilha $(BUILD)/test_fila; do echo "== $$t =="; ./$$t; done
 clean:
 	rm -rf $(BUILD)
+
+-include $(wildcard missoes/M*/Makefile.incremental)

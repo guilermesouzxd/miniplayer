@@ -1,10 +1,8 @@
 #include "miniplayer.h"
 #include <stdio.h>
-#include "lse.h"
 
 void miniplayer_exibir_apresentacao(void) {
     puts("MiniPlayer — projeto progressivo ICC002");
-    puts("M01: implemente musica_criar e musica_destruir.");
+    puts("Estado atual: M01-M04 (musica e lista simplesmente encadeada).");
+    puts("Testes: make test_m02 test_m03 test_m04");
 }
-
-//t_lse bib = lse.criar();
