@@ -1,9 +1,8 @@
-/* Testes aditivos da M03. Executar a partir da raiz com o Makefile incremental. */
 #include <assert.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include "lse.h"
-#include "musica.h" /* so o tipo t_musica (struct); musica.c nao e linkado */
+#include "musica.h" 
 
 #define MAX_ESPERADOS 8
 
@@ -12,14 +11,12 @@ static int visitas;
 static int destruidas;
 static void *destruidas_cargas[MAX_ESPERADOS];
 
-/* Confere que a visita N recebe exatamente a carga esperada N. */
 static void verificar_ordem(void *carga) {
     assert(visitas < MAX_ESPERADOS);
     assert(carga == esperados[visitas]);
     visitas++;
 }
 
-/* Invariante observavel: nos alcancaveis (visitas) == tamanho, na ordem certa. */
 static void conferir(const t_lse *l, int n) {
     assert(lse_tamanho(l) == n);
     visitas = 0;
@@ -89,15 +86,13 @@ static void teste_carga_generica(void) {
 }
 
 static void teste_carga_nula_e_robustez(void) {
-    /* Decisao M03: carga NULL e permitida (um no ainda e um no). */
     t_lse *l = lse_criar();
     assert(l != NULL);
     assert(lse_inserir_inicio(l, NULL) == 1);
     esperados[0] = NULL; conferir(l, 1);
-    assert(lse_primeiro(l) == NULL); /* ambiguidade: NULL tambem sinaliza vazio */
+    assert(lse_primeiro(l) == NULL);
     lse_destruir(l, NULL);
 
-    /* NULL nao causa acesso invalido */
     assert(lse_tamanho(NULL) == 0);
     assert(lse_primeiro(NULL) == NULL);
     lse_percorrer(NULL, verificar_ordem);
@@ -105,20 +100,19 @@ static void teste_carga_nula_e_robustez(void) {
     t_lse *v = lse_criar();
     assert(v != NULL);
     assert(lse_inserir_inicio(v, &x) == 1);
-    lse_percorrer(v, NULL); /* callback NULL: nao faz nada */
+    lse_percorrer(v, NULL);
     lse_destruir(v, NULL);
     lse_destruir(NULL, NULL);
 }
 
 static void teste_destruicao_sem_callback(void) {
-    /* Cargas automaticas (pilha): lse_destruir(l, NULL) so pode liberar nos. */
     int a = 1, b = 2;
     t_lse *l = lse_criar();
     assert(l != NULL);
     assert(lse_inserir_inicio(l, &a) == 1);
     assert(lse_inserir_inicio(l, &b) == 1);
     lse_destruir(l, NULL);
-    assert(a == 1 && b == 2); /* cargas intactas e ainda validas */
+    assert(a == 1 && b == 2);
 }
 
 static void teste_destruicao_com_callback(void) {
@@ -133,8 +127,7 @@ static void teste_destruicao_com_callback(void) {
     }
     destruidas = 0;
     lse_destruir(l, destruir_int);
-    assert(destruidas == 3); /* uma chamada por carga */
-    /* inserimos 0,1,2 no inicio => percurso 2,1,0 => destruicao nessa ordem */
+    assert(destruidas == 3); 
     assert(destruidas_cargas[0] == p[2]);
     assert(destruidas_cargas[1] == p[1]);
     assert(destruidas_cargas[2] == p[0]);

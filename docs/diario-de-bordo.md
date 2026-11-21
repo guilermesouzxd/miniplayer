@@ -1,7 +1,7 @@
 # Diário de bordo
 
 ## Missão M01 — 11/11
-- Integrantes e papéis: Caio Sam e Guilherme Oliveira
+- Integrantes e papéis: Caio Sam Catique Bentes(criador) / Guilherme Oliveira de Souza (revisador)
 - Objetivo: Desenvolvimento de um mini player de música utilizando conceitos de estruturas de dados dinâmicas.
 - O que implementamos: `musica_criar` e `musica_destruir`, e `musica_imprimir` (pedida pelo professor ao final da aula).
 - Decisão técnica e justificativa: a função de impressão foi requisitada pelo professor. Na revisão final, a cópia de strings passou de `strcpy` para cópia truncada com `'\0'` garantido (o kit pedia "cópia segura de strings"), e `musica_destruir` passou a aceitar `NULL`.
@@ -10,7 +10,7 @@
 - Próxima ação: M02.
 
 ## Missão M02 — 13/11
-- Integrantes e papéis: [preencher: quem codificou / quem revisou]
+- Integrantes e papéis: Guilherme Oliveira de Souza (criador) / Caio Sam Catique Bentes(revisador)
 - Objetivo: lista vazia (`lse_criar`, `lse_tamanho`, `lse_primeiro`, `lse_destruir`).
 - O que implementamos: as quatro funções em `src/lse.c`.
 - Decisão técnica: `lse_tamanho(NULL)` devolve 0 em vez de abortar com `assert` (um `assert` some com `-DNDEBUG`; devolver 0 é consistente com `lse_primeiro(NULL)`).
@@ -19,7 +19,7 @@
 - Próxima ação: M03.
 
 ## Missão M03 — 16/11
-- Integrantes e papéis: [preencher: quem codificou / quem revisou — alternar em relação à M02]
+- Integrantes e papéis: Caio Sam Catique Bentes(criador) / Guilherme Oliveira de Souza (revisador)
 - Objetivo: inserção no início, percurso por callback e destruição com destrutor opcional.
 - O que implementamos: `lse_inserir_inicio` (com verificação de `lista == NULL` e de `malloc`), `lse_percorrer`, `lse_destruir` completo; testes de `missoes/M03/test_m03.c` (os `assert(1==0)` do modelo foram substituídos por testes reais).
 - Decisão técnica: carga `NULL` é permitida (um nó ainda é um nó), com a ambiguidade documentada em `contratos.md`.
@@ -29,7 +29,7 @@
 - Próxima ação: M04.
 
 ## Missão M04 — 18/11
-- Integrantes e papéis: [preencher: quem codificou / quem revisou]
+- Integrantes e papéis: Guilherme Oliveira de Souza (criador) / Caio Sam Catique Bentes(revisador)
 - Objetivo: `lse_inserir_fim`, `lse_buscar`, `lse_remover`, `lse_remover_inicio`.
 - O que implementamos: as quatro operações sem ponteiro `fim` (inserção O(n)); testes completos em `missoes/M04/test_m04.c`, incluindo chave duplicada, remoção de único elemento e reinserção.
 - Decisão técnica: `lse_remover` usa ponteiro `anterior` e remove só a primeira ocorrência; libera só o nó.

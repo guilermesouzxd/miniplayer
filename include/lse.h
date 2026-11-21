@@ -1,13 +1,12 @@
 #ifndef LSE_H
 #define LSE_H
-/* Representacao opaca: t_elem e campos de t_lse ficam em lse.c. */
+
 typedef struct lse t_lse;
 typedef int (*t_comparador)(const void *carga, const void *chave);
-/* Nome usado no enunciado da M04; e o mesmo tipo que t_comparador. */
+
 typedef t_comparador t_comparador_lse;
-/* M03: callback de percurso. Recebe a carga de cada no (sem expor t_elem). */
+
 typedef void (*t_lse_visitar)(void *carga);
-/* Nome usado no enunciado da M03 (t_visitar); mesmo tipo que t_lse_visitar. */
 typedef t_lse_visitar t_visitar;
 
 t_lse *lse_criar(void);

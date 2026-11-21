@@ -10,9 +10,9 @@ Pendentes (stubs): `lse_inserir_ordenado` (M05), pilha (M06), fila (M08), integr
 
 ## Testes
 ```bash
-make build/test_musica && ./build/test_musica   # M01
-make test_m02 test_m03 test_m04                 # M02-M04 (Makefiles incrementais)
-make test                                       # falha em pilha/fila até M06/M08 (intencional)
+make build/test_musica && ./build/test_musica   
+make test_m02 test_m03 test_m04               
+make test                                       
 ```
 
 ## Contratos

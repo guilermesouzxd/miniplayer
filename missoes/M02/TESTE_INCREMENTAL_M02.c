@@ -1,4 +1,3 @@
-/* M02: teste adicional, sem modificar arquivos existentes. */
 #include <assert.h>
 #include <stdio.h>
 #include "lse.h"

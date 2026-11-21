@@ -4,14 +4,13 @@
 #include "musica.h"
 int main(void) {
     t_musica *m = musica_criar(1, "Teste", "Artista", 180);
-    assert(m != NULL); /* Falha ate M01 ser implementada. */
+    assert(m != NULL); 
     assert(m->id == 1 && strcmp(m->titulo, "Teste") == 0);
     assert(strcmp(m->artista, "Artista") == 0);
     assert(m->duracao == 180);
     musica_imprimir(m);
     musica_destruir(m);
 
-    /* M01: copia segura — texto longo e truncado e sempre terminado em '\0'. */
     char longo[300];
     memset(longo, 'x', sizeof longo - 1);
     longo[sizeof longo - 1] = '\0';
@@ -21,7 +20,6 @@ int main(void) {
     assert(strlen(t->artista) == MUSICA_TAM_TEXTO - 1);
     musica_destruir(t);
 
-    /* Entradas invalidas e NULL tolerado. */
     assert(musica_criar(3, NULL, "A", 1) == NULL);
     assert(musica_criar(3, "T", NULL, 1) == NULL);
     musica_destruir(NULL);

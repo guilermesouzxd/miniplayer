@@ -3,7 +3,7 @@
 #include "lse.h"
 int main(void) {
     t_lse *l = lse_criar();
-    assert(l != NULL); /* Falha ate M03. */
+    assert(l != NULL);
     assert(lse_tamanho(l) == 0);
     assert(lse_primeiro(l) == NULL);
     int a = 10, b = 20;
